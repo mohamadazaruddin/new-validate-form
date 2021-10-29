@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.css">
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #00deae;
+        }
+
+        .container {
+            padding: 25px;
+        }
+
+        main {
+            border: 1px solid black;
+            /* width: 50%; */
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 30px;
+        }
+
+        form {
+            padding: 25px;
+            position: relative;
+        }
+
+        .input input {
+            width: 100%;
+            height: 30px;
+        }
+
+        input {
+            margin-bottom: 5px;
+            padding: 0px 10px;
+        }
+
+        label {
+            margin: 15px 0 5px 0;
+            display: inline-block;
+        }
+
+        .forblock {
+            width: 100%;
+        }
+
+        form p {
+            color: #e12f2f;
+            font-size: 15px;
+        }
+
+        .right {
+            border: 1px solid #000000;
+            z-index: 20;
+            margin: 0 auto;
+            background-color: #fff;
+            display: none;
+            padding: 10px 10px;
+        }
+
+        .next {
+            display: flex;
+            align-items: center;
+        }
+
+        .next p {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0px 10px 0 0;
+            color: grey;
+        }
+
+        .next span {
+            display: inline-block;
+            /* padding-left: 10px; */
+            font-size: 20px;
+            font-weight: 600;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            text-align: left;
+            /* width: 40%; */
+            color: rgb(0 0 0);
+        }
+
+        .gender {
+            padding: 15px 0px;
+        }
+
+        ::-webkit-inner-spin-button {
+            display: none;
+        }
+
+        .form-check-label {
+            margin: 0px;
+        }
+
+        .terms {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000000d9;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .form-check-input {
+            margin: 5px 0px 0 0;
+        }
+
+        .tc {
+            margin: 13px 0px 0 6px;
+        }
+
+        .btndiv {
+            text-align: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn.mine {
+            background-color: #00deae;
+            border: 1px solid;
+            padding: 5px 30px;
+        }
+
+        .main span {
+            color: red;
+        }
+
+        .fa-mars {
+            color: rgb(34, 31, 211);
+            margin: 0 15px 0 0px;
+        }
+
+        .fa-venus {
+            color: rgb(221, 32, 64);
+            margin: 0 15px 0 0px;
+        }
+
+        .fa-transgender {
+            color: rgb(0, 255, 34);
+            margin: 0 15px 0 0px;
+        }
+
+        #maleicon {
+            display: none;
+        }
+
+        .redstar {
+            color: red;
+        }
+
+        .fblock {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <main id="hide">
+            <form onsubmit="return result(event)" id="none">
+                <h1 class="text-center">Form</h1>
+                <div class="input">
+                    <label for="fname">First Name<span class="redstar">*</span></label>
+                    <input type="text" placeholder="First Name" id="fname" />
+                    <p id="errorforfname"></p>
+                </div>
+                <div class="input">
+                    <label for="mname">Middle Name<span class="redstar">*</span></label>
+                    <input type="text" placeholder="Middle Name" id="mname" />
+                    <p id="errorformname"></p>
+                </div>
+                <div class="input">
+                    <label for="lname" class="forlname">Last Name<span class="redstar">*</span></label>
+                    <input type="text" placeholder="Last Name" id="lname" />
+                    <p id="errorforlname"></p>
+                </div>
+                <div class="input">
+                    <label for="number">Mobile Number <span class="redstar">*</span></label>
+                    <input type="text" placeholder="Number" id="num" name="num" maxlength="10" />
+                    <p id="errorfornumber"></p>
+                </div>
+                <div class="input">
+                    <label for="email">Email<span class="redstar">*</span> </label>
+                    <input type="email" placeholder="Email" id="email" />
+                    <p id="errorforemail"></p>
+                </div>
+                <div class="gender">
+                    <h2>Gender <span class="redstar">*</span></h2>
+                    <div class="fblock"><input class="form-check-input" type="radio" value="male" id="male"
+                            name="gender" checked />
+                        <label class="form-check-label" for="male">Male <i class="fas fa-mars"></i></label></div>
+                    <div class="fblock"> <input class="form-check-input" type="radio" value="female" id="female"
+                            name="gender" />
+                        <label class="form-check-label" for="female">Female <i class="fas fa-venus"></i></label></div>
+                    <div class="fblock"> <input class="form-check-input" type="radio" id="other" value="other"
+                            name="gender" />
+                        <label class="form-check-label" for="other">Others <i class="fas fa-transgender"></i></label>
+                    </div>
+                </div>
+
+                <div class="input">
+                    <label for="dob" class="forblock">Date of Birth<span class="redstar">*</span> </label>
+                    <input type="date" placeholder="Date Of Birth" id="dob" />
+                    <p id="errorfordob"></p>
+                </div>
+                <div class="input">
+                    <label for="website">Website <span class="redstar">*</span></label>
+                    <input type="text" placeholder="URL" id="website" />
+                    <p id="errorforwebsite"></p>
+                </div>
+                <div class="input">
+                    <label for="password">Password <span class="redstar">*</span></label>
+                    <input type="text" placeholder="must be 8 characters" id="password" />
+                    <p id="errorforpassword"></p>
+                </div>
+                <div class="input">
+                    <label for="confirmpassword">Confirm Password<span class="redstar">*</span> </label>
+                    <input type="text" placeholder="same as Password" id="confirmpassword" />
+                    <p id="errorforconfirmpassword"></p>
+                </div>
+                <div class="terms">
+                    <label for="termsandcondition"> Terms & Condition<span class="redstar">*</span> </label>
+                    <input class="form-check-input tc" type="checkbox" id="terms" required />
+                    <p id="errorforterms"></p>
+                </div>
+                <div class="btndiv">
+                    <button type="submit" class="btn mine text-center">SUBMIT</button>
+                </div>
+            </form>
+        </main>
+        <div class="right" id="show">
+            <div class="align">
+                <h1 class="text-center">Result</h1>
+
+                <div class="next">
+                    <p>Name:</p>
+                    <span id="fullnameresult"></span>
+                </div>
+                <div class="next">
+                    <p>Number:</p>
+                    <span id="numberresult"></span>
+                </div>
+                <div class="next">
+                    <p>Email:</p>
+                    <span id="emailresult"></span>
+                </div>
+                <div class="next">
+                    <p>Gender:</p>
+                    <span id="genderresult"><i class="fas fa-mars" id="maleicon"></i></span>
+                </div>
+                <div class="next">
+                    <p>DOB:</p>
+                    <span id="dobresult"></span>
+                </div>
+                <div class="next">
+                    <p>Website:</p>
+                    <span id="websiteresult"></span>
+                </div>
+                <div class="next">
+                    <p>Password:</p>
+                    <span id="passwordresult"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function result(event) {
+            event.preventDefault();
+
+            var valuefromfname = document.getElementById("fname").value;
+            var valuefrommname = document.getElementById("mname").value;
+            var valuefromlastname = document.getElementById("lname").value;
+            var dateofbirth = document.getElementById("dob").value;
+            var mobileNo = document.getElementById("num").value;
+            var valuefromemail = document.getElementById("email").value;
+            var valuefromfwebsite = document.getElementById("website").value;
+            var valuefrompassword = document.getElementById("password").value;
+            var valuefromconfirmpass =
+                document.getElementById("confirmpassword").value;
+            var name_regex = /^[a-zA-Z ]{2,30}$/;
+
+            if (
+                valuefromfname &&
+                valuefrommname &&
+                valuefromlastname &&
+                dateofbirth &&
+                mobileNo &&
+                valuefromemail &&
+                valuefromfwebsite &&
+                valuefrompassword &&
+                valuefromconfirmpass
+            ) {
+                let ifAllInputsHaveValidated = true;
+
+                if (name_regex.test(valuefromfname)) {
+                    document.getElementById("errorforfname").innerHTML = "";
+                } else {
+                    document.getElementById("errorforfname").innerHTML =
+                        "Enter Valid First Name";
+                    ifAllInputsHaveValidated = false;
+                }
+                if (name_regex.test(valuefrommname)) {
+                    document.getElementById("errorformname").innerHTML = "";
+                } else {
+                    document.getElementById("errorformname").innerHTML =
+                        "Enter Valid Middle Name";
+                    ifAllInputsHaveValidated = false;
+                }
+                if (name_regex.test(valuefromlastname)) {
+                    document.getElementById("errorforlname").innerHTML = "";
+                } else {
+                    document.getElementById("errorforlname").innerHTML =
+                        "Enter Valid Last Name";
+                    ifAllInputsHaveValidated = false;
+                }
+
+                var genderInputs = document.getElementsByName("gender");
+                console.log("genderInputs", genderInputs);
+                let gender = "";
+                for (let i = 0; i < genderInputs.length; i++) {
+                    const element = genderInputs[i];
+                    if (element.id == "male") {
+                        if (element.checked) {
+                            gender = "male";
+                            if (gender = "male") {
+                                document.getElementById("maleicon").style.display = "block";
+                            }
+                        }
+                    } else if (element.id == "female") {
+                        if (element.checked) {
+                            gender = "female";
+                        }
+                    } else {
+                        if (element.checked) {
+                            gender = "others";
+                        }
+                    }
+                }
+                console.log("gender", gender);
+
+                var today = new Date();
+                var Bdate = new Date(dateofbirth);
+
+                var age = today.getFullYear() - Bdate.getFullYear();
+                console.log(age);
+                if (age >= 18) {
+                    document.getElementById("errorfordob").innerHTML = "";
+                } else {
+                    document.getElementById("errorfordob").innerHTML =
+                        "Above 18 Compulsory";
+                    ifAllInputsHaveValidated = false;
+                }
+
+                if (mobileNo.length == 10) {
+                    document.getElementById("errorfornumber").innerHTML = "";
+                } else {
+                    document.getElementById("errorfornumber").innerHTML =
+                        "Invalid Mobile Number";
+                    ifAllInputsHaveValidated = false;
+                }
+
+                function phoneno() {
+                    $("#num").keypress(function (e) {
+                        var a = [];
+                        var k = e.which;
+
+                        for (i = 48; i < 58; i++) a.push(i);
+
+                        if (!(a.indexOf(k) >= 0)) e.preventDefault();
+                    });
+                }
+
+                var pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                var mail = pattern.test(valuefromemail);
+                console.log(mail);
+
+                if (pattern.test(valuefromemail)) {
+                    document.getElementById("errorforemail").innerHTML = "";
+                } else {
+                    document.getElementById("errorforemail").innerHTML =
+                        "Enter Valid Email";
+                    ifAllInputsHaveValidated = false;
+                }
+
+                var urlpattern =
+                    /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+
+                if (valuefromfwebsite.match(urlpattern)) {
+                    document.getElementById("errorforwebsite").innerHTML = "";
+                } else {
+                    document.getElementById("errorforwebsite").innerHTML = "Invald URL";
+                    ifAllInputsHaveValidated = false;
+                }
+
+                if (valuefrompassword.length >= 8) {
+                    document.getElementById("errorforpassword").innerHTML = "";
+                    if (valuefrompassword.length !== 8) {
+                        document.getElementById("errorforpassword").innerHTML =
+                            "Enter Valid Password";
+                        ifAllInputsHaveValidated = false;
+                    }
+                } else {
+                    document.getElementById("errorforpassword").innerHTML =
+                        "Enter Valid Password";
+                    ifAllInputsHaveValidated = false;
+                }
+
+                if (valuefromconfirmpass == valuefrompassword) {
+                    document.getElementById("errorforconfirmpassword").innerHTML = "";
+                } else {
+                    document.getElementById("errorforconfirmpassword").innerHTML =
+                        "Not Match With Password";
+                    ifAllInputsHaveValidated = false;
+                }
+
+                if (ifAllInputsHaveValidated) {
+                    let send_data = {
+                        firstName: valuefromfname,
+                        middleName: valuefrommname,
+                        lastName: valuefromlastname,
+                        gender: gender,
+                        dob: dateofbirth,
+                        email: valuefromemail,
+                        phoneNo: mobileNo,
+                        url: valuefromfwebsite,
+                        password: valuefrompassword
+                    };
+                    showMyViewContainer(send_data);
+                }
+            } else {
+                if (!valuefromfname) {
+                    document.getElementById("errorforfname").innerHTML =
+                        "First Name is Required!";
+                }
+                if (!valuefrommname) {
+                    document.getElementById("errorformname").innerHTML =
+                        "Middle Name is Required!";
+                }
+                if (!valuefromlastname) {
+                    document.getElementById("errorforlname").innerHTML =
+                        "Last Name is Required!";
+                }
+                if (!dateofbirth) {
+                    document.getElementById("errorfordob").innerHTML =
+                        "The Valid DOB Required";
+                }
+                if (!mobileNo) {
+                    document.getElementById("errorfornumber").innerHTML =
+                        "Moblie Number Required";
+                }
+                if (!valuefromemail) {
+                    document.getElementById("errorforemail").innerHTML =
+                        "Email Address Required";
+                }
+                if (!valuefromfwebsite) {
+                    document.getElementById("errorforwebsite").innerHTML =
+                        "Website URL Required";
+                }
+                if (!valuefrompassword) {
+                    document.getElementById("errorforpassword").innerHTML =
+                        "Password Requred";
+                }
+                if (!valuefromconfirmpass)
+                    document.getElementById("errorforconfirmpassword").innerHTML =
+                    "Confirm Password Required";
+            }
+        }
+
+        function showMyViewContainer(get_data) {
+            var pass = "";
+            var passlength = get_data.password;
+            for (let i = 0; i < passlength.length; i++) {
+                pass += "*";
+            }
+
+
+            console.log("get_data", get_data);
+            document.getElementById("hide").style.display = "none";
+            document.getElementById("show").style.display = "block";
+            document.getElementById("fullnameresult").innerHTML =
+                get_data.firstName +
+                " " +
+                get_data.middleName +
+                " " +
+                get_data.lastName;
+            document.getElementById("genderresult").innerHTML = get_data.gender;
+            document.getElementById("dobresult").innerHTML = get_data.dob;
+            document.getElementById("emailresult").innerHTML = get_data.email;
+            document.getElementById("numberresult").innerHTML = get_data.phoneNo;
+            document.getElementById("websiteresult").innerHTML = get_data.url;
+            document.getElementById("passwordresult").innerHTML = pass;
+        }
+    </script>
+</body>
+
+</html>
