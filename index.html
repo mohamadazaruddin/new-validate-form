@@ -35,7 +35,10 @@
             padding: 25px;
             position: relative;
         }
-
+/* input{
+    background-color: black;
+    color: white;
+} */
         .input {
             margin: 20px 0px;
         }
@@ -71,70 +74,12 @@
             font-weight: bold;
         }
 
-        button {
-            font-size: 20px;
-            padding: 10px 70px;
-            margin: 20px 0px;
-            border: 1px solid;
-            border-radius: 10px;
-            background-color: yellow;
-            width: 100%;
-            cursor: pointer;
-        }
-
-        .right {
-            width: 80%;
-            height: 100%;
-            z-index: 20;
-            margin: 0 auto;
-            display: none;
-            padding: 10px 10px;
-        }
-
-        .flex {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .flex p {
-            text-align: left;
-            width: 40%;
-            padding-left: 10px;
-            font-size: 20px;
-            font-weight: 600;
-            color: #fff;
-            margin: 0px;
-        }
-
-        .flex b {
-            text-align: center;
-            width: 5%;
-            font-size: 20px;
-            color: #fff;
-        }
-
-        .flex span {
-            display: inline-block;
-            padding-left: 10px;
-            font-size: 20px;
-            font-weight: 600;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            text-align: left;
-            width: 55%;
-            color: #fff;
-        }
 
         .gender {
             padding: 15px 0px;
         }
 
-        ::-webkit-inner-spin-button {
-            display: none;
-        }
+     
 
         .form-check-label {
             margin: 0px;
@@ -167,7 +112,68 @@
             border: 1 px solid black;
 
         }
+        .back{
+            background-color: black;
+        }
+        .res{
+    border: 1px solid #63e780;
+    padding: 30px;
+    display: none;
+        }
+       .res p{ color: black;
+    font-weight: 600;
+    font-size: 20px;}
+    .res span{
+        color: #63e278;
+    font-weight: 600;
+    font-size: 20px;
+    }
+        .mybox{
+            border: 1px solid #63e278;
 
+    height: 100px
+;
+position: relative;
+    border-radius: 3px
+;
+margin-bottom: 25px;
+        }
+        .slot1{
+            height: 50%;
+    width: 100%;
+    background-color: #63e278;
+        }
+        .slot2{
+            height: 50%;
+    position: absolute;
+    transition: 0.3s all linear;
+    bottom: 0;
+    width: 100%;
+    background-color: #000000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+    
+        .mybox:hover .slot2{
+            height: 100%;
+            z-index: 500;
+
+        }
+        .backbtn{
+            background-color: #63e278;
+    border: 1px solid #63e278;
+    width: 150px;
+    color: black;
+    font-weight: 600;
+}
+.backbtn:hover{
+    background-color: black;
+    color: #63e278;
+    
+}
+.form-check-input{
+    margin-top: 8px;
+}
         @media (max-width:850px) {
             main {
                 width: 100%;
@@ -177,22 +183,22 @@
 </head>
 
 <body>
-    <main>
-        <form onsubmit="return result(event)" novalidate id="none">
+    <main id="none">
+        <form onsubmit="return result(event)" novalidate >
             <h1 class="text-center">Validation Form</h1>
             <div class="input">
                 <label for="fname">First Name<span class="redstar">*</span></label>
-                <input class="all" type="text" placeholder="FirstName" maxlength="15" id="fname">
+                <input class="all" type="text" placeholder="First Name" maxlength="15" id="fname">
                 <p id="errorforfname"></p>
             </div>
             <div class="input">
                 <label for="mname">Middle Name<span class="redstar">*</span></label>
-                <input class="all" type="text" placeholder="MiddleName" maxlength="15" id="mname">
+                <input class="all" type="text" placeholder="Middle Name" maxlength="15" id="mname">
                 <p id="errorformname"></p>
             </div>
             <div class="input">
                 <label for="lname" class="forlname">Last Name<span class="redstar">*</span></label>
-                <input class="all" type="text" placeholder="LastName" maxlength="15" id="lname">
+                <input class="all" type="text" placeholder="Last Name" maxlength="15" id="lname">
                 <p id="errorforlname"></p>
             </div>
             <div class="input">
@@ -249,42 +255,66 @@
                 <button type="submit" class="btn btn-lg blackclr">SUBMIT</button>
             </div>
         </form>
+     </main>  
 
-        <div class="right" id="block">
-            <div class="align">
-                <h1 class="text-light text-center">Result</h1>
-
-                <div class="flex">
-                    <p>Name </p><b>:</b> <span id="fullnameresult"></span>
-                </div>
-                <div class="flex">
-                    <p>Number</p> <b>:</b> <span id="numberresult"></span>
-                </div>
-                <div class="flex">
-                    <p>Email </p><b>:</b> <span id="emailresult"></span>
-                </div>
-                <div class="flex">
-                    <p>Gender</p><b>:</b> <span id="genderresult"></span>
-                </div>
-                <div class="flex">
-                    <p>Date of Birth</p><b>:</b> <span id="dobresult"></span>
-                </div>
-                <div class="flex">
-                    <p>Website</p><b>:</b> <span id="websiteresult"></span>
-                </div>
-                <div class="flex">
-                    <p>Password</p><b>:</b> <span id="passwordresult"></span>
-                </div>
-                <div class="flex">
-                    <p>Confirm Password</p><b>:</b> <span id="confirmpasswordresult"></span>
-                </div>
-                <div class="flex">
-                    <p>Confirm Password</p><b>:</b> <span id="t&c"></span>
-                </div>
-
-            </div>
+       <div class="container res" id="block">
+<div class="row text-center">
+    <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="mybox">
+            <div class="slot1"><p>Name </p></div>
+            <div class="slot2"> <span id="fullnameresult">dddddddddddddd</span></div> </div>
+        </div>   
+         <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="mybox">
+            <div class="slot1"><p>Number </p></div>
+            <div class="slot2"><span id="numberresult"></span></div> </div>
+        </div>    
+        <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="mybox">
+            <div class="slot1"><p>Email </p></div>
+            <div class="slot2"><span id="emailresult"></span></div> </div>
         </div>
-    </main>
+    </div>
+
+<div class="row text-center">
+    <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="mybox">
+            <div class="slot1"><p>Gender </p></div>
+            <div class="slot2"><span id="genderresult"></span></div>    </div>
+        </div><div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="mybox">
+            <div class="slot1"><p>Date of Birth </p></div>
+            <div class="slot2"><span id="dobresult"></span></div>    </div>
+        </div><div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="mybox">
+            <div class="slot1"><p>Website </p></div>
+            <div class="slot2"><span id="websiteresult"></span></div>    </div>
+        </div>
+        
+        
+        
+        
+
+</div><div class="row text-center">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="mybox">
+        <div class="slot1"><p>Password </p></div>
+        <div class="slot2"><span id="passwordresult"></span></div>    </div>
+    </div><div class="col-lg-6 col-md-6 col-sm-12">
+    <div class="mybox">
+        <div class="slot1"><p>terms and Condition </p></div>
+        <div class="slot2"><span id="t&c"></span></div>    </div>
+    
+   
+</div>
+<div class="btn text-center backbtn" onclick="reenter()">go back</div>
+
+
+
+
+
+       </div>
+    
 
     <script>
         function result(event) {
@@ -483,7 +513,11 @@
             document.getElementById("numberresult").innerHTML = get_data.phoneNo;
             document.getElementById("websiteresult").innerHTML = get_data.url;
             document.getElementById("passwordresult").innerHTML = get_data.password;
-            document.getElementById("confirmpasswordresult").innerHTML = get_data.cpass;
+            // document.getElementById("confirmpasswordresult").innerHTML = get_data.cpass;
+        }
+        function reenter(){
+            document.getElementById("block").style.display = "none";
+            document.getElementById("none").style.display = "block";
         }
     </script>
 </body>
