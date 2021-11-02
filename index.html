@@ -144,7 +144,8 @@ margin-bottom: 25px;
     background-color: #63e278;
         }
         .slot2{
-            height: 50%;
+      height: 50%;
+    display: flex;
     position: absolute;
     transition: 0.3s all linear;
     bottom: 0;
@@ -152,6 +153,9 @@ margin-bottom: 25px;
     background-color: #000000;
     overflow: hidden;
     text-overflow: ellipsis;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
 }
     
         .mybox:hover .slot2{
@@ -171,6 +175,12 @@ margin-bottom: 25px;
     color: #63e278;
     
 }
+        .other{
+            display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+      
 .form-check-input{
     margin-top: 8px;
 }
@@ -288,7 +298,7 @@ margin-bottom: 25px;
         </div><div class="col-lg-4 col-md-4 col-sm-12">
         <div class="mybox">
             <div class="slot1"><p>Website </p></div>
-            <div class="slot2"><span id="websiteresult"></span></div>    </div>
+            <div class="slot2 other"><span id="websiteresult"></span></div>    </div>
         </div>
         
         
