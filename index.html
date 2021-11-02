@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.css">
     <style>
         * {
             margin: 0;
@@ -149,9 +150,20 @@ margin-bottom: 25px;
     transition: 0.3s all linear;
     bottom: 0;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #000000;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.other{
+    display: block;
+    overflow: scroll;
+    padding: 10px;
+}
+#websiteresult{
+    font-size: 15px;
 }
     
         .mybox:hover .slot2{
@@ -159,6 +171,28 @@ margin-bottom: 25px;
             z-index: 500;
 
         }
+        ::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+ background :black;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #63e780; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:#63e780; 
+}
         .backbtn{
             background-color: #63e278;
     border: 1px solid #63e278;
@@ -170,6 +204,27 @@ margin-bottom: 25px;
     background-color: black;
     color: #63e278;
     
+}
+.fa-mars{
+margin: 0 5px;
+    color: #1b1bff;
+}
+.fa-venus{
+    margin: 0 5px;
+    color: red;
+}
+.fa-transgender{
+    margin: 0 5px;
+    color: black;
+}
+#micon{
+    display: none;
+}
+#ficon{
+    display: none;
+}
+#transicon{
+    display: none;
 }
 .form-check-input{
     margin-top: 8px;
@@ -216,11 +271,11 @@ margin-bottom: 25px;
             <div class="gender">
                 <h2>Gender :-</h2>
                 <input class="form-check-input" type="radio" value="male" id="male" name="gender" checked>
-                <label class="form-check-label" for="male">Male</label>
+                <label class="form-check-label" for="male">Male<i class="fas fa-mars"></i></label>
                 <input class="form-check-input" type="radio" value="female" id="female" name="gender">
-                <label class="form-check-label" for="female">Female</label>
+                <label class="form-check-label" for="female">Female<i class="fas fa-venus"></i></label>
                 <input class="form-check-input" type="radio" id="other" value="other" name="gender">
-                <label class="form-check-label" for="other">Others</label>
+                <label class="form-check-label" for="other">Others<i class="fas fa-transgender"></i></label>
             </div>
 
             <div class="input">
@@ -244,7 +299,7 @@ margin-bottom: 25px;
                 <p id="errorforconfirmpassword"></p>
             </div>
             <div class="terms">
-                <label for="termsandcondition"> Terms & Condition </label>
+                <label for="terms"> Terms & Condition </label>
                 <input class="form-check-input m" type="radio" id="terms" name="terms">
             </div>
             <div class="text-center">
@@ -262,7 +317,7 @@ margin-bottom: 25px;
     <div class="col-lg-4 col-md-4 col-sm-12">
         <div class="mybox">
             <div class="slot1"><p>Name </p></div>
-            <div class="slot2"> <span id="fullnameresult">dddddddddddddd</span></div> </div>
+            <div class="slot2"> <span id="fullnameresult"></span></div> </div>
         </div>   
          <div class="col-lg-4 col-md-4 col-sm-12">
         <div class="mybox">
@@ -280,7 +335,7 @@ margin-bottom: 25px;
     <div class="col-lg-4 col-md-4 col-sm-12">
         <div class="mybox">
             <div class="slot1"><p>Gender </p></div>
-            <div class="slot2"><span id="genderresult"></span></div>    </div>
+            <div class="slot2"><span id="genderresult"><i class="fas fa-mars" id="micon"></i><i class="fas fa-venus" id="ficon"></i><i class="fas fa-transgender" id="transicon"></i></span></div>    </div>
         </div><div class="col-lg-4 col-md-4 col-sm-12">
         <div class="mybox">
             <div class="slot1"><p>Date of Birth </p></div>
@@ -288,7 +343,7 @@ margin-bottom: 25px;
         </div><div class="col-lg-4 col-md-4 col-sm-12">
         <div class="mybox">
             <div class="slot1"><p>Website </p></div>
-            <div class="slot2"><span id="websiteresult"></span></div>    </div>
+            <div class="slot2 other"><span id="websiteresult"></span></div>    </div>
         </div>
         
         
@@ -307,7 +362,7 @@ margin-bottom: 25px;
     
    
 </div>
-<div class="btn text-center backbtn" onclick="reenter()">go back</div>
+<div class="btn text-center backbtn" onclick="reenter()"><i class="fas fa-arrow-left"></i></div>
 
 
 
@@ -368,14 +423,20 @@ margin-bottom: 25px;
                     if (element.id == "male") {
                         if (element.checked) {
                             gender = "male";
+                            if(gender="male"){
+                                document.getElementById("micon").style.display= "block";}
                         }
                     } else if (element.id == "female") {
                         if (element.checked) {
                             gender = "female";
+                            if(gender="female"){
+                            document.getElementById("ficon").style.display= "block";}
                         }
                     } else {
                         if (element.checked) {
-                            gender = "others";
+                            gender = "others"; 
+                            if(gender="others"){ document.getElementById("transicon").style.display= "block";
+                        }
                         }
                     }
                 }
